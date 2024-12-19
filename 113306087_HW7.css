@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  width: 900px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 950px;
+}
+
+.left-panel {
+  width: 330px;
+  background-color: #A9B7AA;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.photo-panel {
+  height: 50%;
+  background-image: url('C:\Users\trist\OneDrive\文档\GitHub\113306087_HW5\chill guy.png');
+  background-size: cover;
+  background-position: center;
+  width: 80%;
+  border-radius: 8px;
+}
+
+.edit-name-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+  width: 80%;
+}
+
+.edit-name-section h1 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.edit-name-section button {
+  padding: 5px 10px;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-name-section button:hover {
+  background-color: #159b43;
+}
+
+.text-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.text-content h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.text-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.contact {
+  font-size: 14px;
+  margin-top: auto;
+}
+
+.contact a {
+  color: #e6cfe6;
+  text-decoration: none;
+}
+
+.nccu-logo {
+  width: 50px;
+  margin: 20px auto 0;
+}
+
+.right-panel {
+  width: 540px;
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  margin-bottom: 20px; 
+  border-bottom: 2px solid #ccc; 
+  padding-bottom: 5px; 
+  font-size: 20px;
+}
+
+.education .entry {
+  margin-bottom: 10px;
+}
+
+.education .year {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.homework-list {
+  margin-bottom: 20px;
+}
+
+.homework-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.homework-item span {
+  display: inline;
+  font-size: 17px;
+  color: black;
+}
+
+.homework-list a {
+  color: #1db954;
+  text-decoration: none;
+}
+
+.homework-list a:hover {
+  text-decoration: underline;
+}
+
+.favorite-music {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+}
+
+.favorite-music h2 {
+  margin: 0; 
+}
+
+.music-covers {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px; 
+}
+
+.music-covers a {
+  flex: 1;
+  text-align: center;
+}
+
+.music-covers img {
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover; 
+}
+
+.music-item {
+  text-align: center; 
+  flex: 1;
+}
+
+.music-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; 
+}
+
+.music-item p {
+  margin-top: 10px; 
+  font-size: 14px;
+  color: #333; 
+}
+
+.note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.add-music-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 400px;
+  display: none; /* Initially hidden */
+  z-index: 1000;
+}
+
+.add-music-modal h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.add-music-modal input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-music-modal button {
+  padding: 10px 20px;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-music-modal button:hover {
+  background-color: #159b43;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+}
+
+/* General button styling */
+button {
+  padding: 10px 20px; /* Default padding */
+  font-size: 14px; /* Default font size */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for both Edit and Add Music buttons */
+#editNameBtn, #addMusicBtn {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  font-weight: bold; /* Bold text */
+}
+
+/* Adjust size for Add Music button */
+#addMusicBtn {
+  font-size: 12px; /* Smaller text */
+  padding: 6px 12px; /* Reduced padding */
+  margin-top: 10px; /* Optional: space it out from other elements */
+  width: auto; /* Allow the button to size based on content */
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+

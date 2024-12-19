@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personal Profile</title>
+  <link rel="stylesheet" href="113306087_HW7.css">
+</head>
+<body>
+  <!-- Modal Overlay -->
+  <div class="modal-overlay"></div>
+
+  <!-- Add Music Modal -->
+   <div class="add-music-modal" id="addMusicModal">
+    <h2>Add New Music</h2>
+    <input type="text" id="musicNameInput" placeholder="Music Name">
+    <input type="url" id="musicLinkInput" placeholder="Music Link (URL)">
+    <input type="url" id="musicImageInput" placeholder="Music Image (URL)">
+    <button id="submitMusic">Submit</button>
+    <button id="closeModal">Cancel</button>
+  </div>
+
+  <div class="main-container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <div class="photo-panel"></div>
+      
+      <!-- Edit Name Section -->
+      <div class="edit-name-section">
+        <h1 id="nameDisplay">Tristan Choi</h1>
+        <button id="editNameBtn">Edit</button>
+      </div>
+
+      <div class="text-content">
+        <h2>ABOUT ME</h2>
+        <p>
+          I am a freshman in the Department of Management Information Systems at National Chengchi University. I am very interested in studying programming and computer science fundamentals. I have experience in writing Java, HTML, CSS and C++.
+        </p>
+        <div class="contact">
+          <h2>Contact</h2> <br>
+          <a href="mailto:113306087@g.nccu.edu.tw">113306087@g.nccu.edu.tw</a>
+        </div><br><br>
+        <img src="C:\Users\trist\OneDrive\文档\GitHub\113306087_HW5\nccu logo.png" alt="nccu logo" class="NCCU-logo" width="80%" height="80px">
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <!-- Education Section -->
+      <div class="section education">
+        <h2>Education</h2>
+        <div class="entry">
+          <span class="year">2024 - Now</span>
+          National Chengchi University, Department of MIS, Computer Science
+        </div><br>
+        <div class="entry">
+          <span class="year">2021 - 2024</span>
+          Taipei Municipal Xisong High School
+        </div><br>
+        <div class="entry">
+          <span class="year">2018 - 2021</span>
+          Middle School Graduation
+        </div>
+      </div><br><br><br>
+
+      <!-- Homework Section -->
+      <div class="section homework-list">
+        <h2>Homework List</h2>
+        <div class="homework-item">
+          <span><strong>HW1-</strong></span><a href="https://github.com/Tristan-421/HW2.git">https://github.com/Tristan-421/HW2.git</a>
+        </div><br>
+        <div class="homework-item">
+          <span><strong>HW2-</strong></span><a href="https://github.com/Tristan-421/HW2..git">https://github.com/Tristan-421/HW2..git</a>
+        </div><br>
+        <div class="homework-item">
+          <span><strong>HW3-</strong></span><a href="https://github.com/Tristan-421/HW3.git">https://github.com/Tristan-421/HW3.git</a>
+        </div>
+      </div><br><br><br>
+
+      <!-- Favorite Music Section -->
+      <div class="section favorite-music">
+          <h2>Favorite Music</h2><br>
+            <div class="music-covers" id="musicList">
+              <div class="music-item"><a href="https://www.youtube.com/watch?v=5EpyN_6dqyk"><img src="timeless cover.webp" alt="Timeless" width="30%" height="80px"></a><p>Timeless</p></div>
+              <div class="music-item"><a href="https://www.youtube.com/watch?v=iI34LYmJ1Fs"><img src="robbery.jpeg" alt="Robbery" width="30%" height="80px"></a><p>Robbery</p></div>
+              <div class="music-item"><a href="https://www.youtube.com/watch?v=2avPJ9TZNmU"><img src="smile.jpeg" alt="Smile" width="30%" height="80px"></a><p>Smile</p></div>
+              <div class="music-item"><a href="https://www.youtube.com/watch?v=6n4wt6gj7pA"><img src="wasted.jpg" alt="Wasted" width="30%" height="80px"></a><p>Wasted</p></div>
+            </div>
+            <button id="addMusicBtn">Add Music</button>
+      </div>
+      <div class="note">
+        Note: These are some of my favorite songs that inspire me while I code. Feel free to check them out!
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const editNameBtn = document.getElementById('editNameBtn');
+    const nameDisplay = document.getElementById('nameDisplay');
+    let isEditing = false;
+
+    editNameBtn.addEventListener('click', () => {
+      if (isEditing) {
+        const nameInput = document.getElementById('nameInput');
+        nameDisplay.textContent = nameInput.value;
+        nameInput.remove();
+        editNameBtn.textContent = 'Edit';
+      } else {
+        const inputField = document.createElement('input');
+        inputField.type = 'text';
+        inputField.value = nameDisplay.textContent;
+        inputField.id = 'nameInput';
+        nameDisplay.textContent = '';
+        nameDisplay.appendChild(inputField);
+        editNameBtn.textContent = 'Save';
+      }
+      isEditing = !isEditing;
+    });
+
+    const addMusicBtn = document.getElementById('addMusicBtn');
+    const addMusicModal = document.getElementById('addMusicModal');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const submitMusicBtn = document.getElementById('submitMusic');
+    const closeModalBtn = document.getElementById('closeModal');
+    const musicList = document.getElementById('musicList');
+
+    addMusicBtn.addEventListener('click', () => {
+      addMusicModal.style.display = 'block';
+      modalOverlay.style.display = 'block';
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      addMusicModal.style.display = 'none';
+      modalOverlay.style.display = 'none';
+    });
+
+    submitMusicBtn.addEventListener('click', () => {
+      const musicName = document.getElementById('musicNameInput').value.trim();
+      const musicLink = document.getElementById('musicLinkInput').value.trim();
+      const musicImage = document.getElementById('musicImageInput').value.trim();
+
+      if (musicName && musicLink && musicImage) {
+        const newMusicItem = document.createElement('div');
+        newMusicItem.classList.add('music-item');
+        newMusicItem.innerHTML = `
+          <a href="${musicLink}" target="_blank">
+            <img src="${musicImage}" alt="${musicName}" width="30%" height="80px">
+          </a>
+          <p>${musicName}</p>
+        `;
+        musicList.appendChild(newMusicItem);
+        addMusicModal.style.display = 'none';
+        modalOverlay.style.display = 'none';
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+  </script>
+</body>
+</html>
